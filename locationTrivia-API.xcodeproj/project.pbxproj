@@ -27,6 +27,7 @@
 		D80594F81976F1D000116B35 /* FISTriviaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80594ED1976F1D000116B35 /* FISTriviaTableViewController.m */; };
 		D80594F91976F1D000116B35 /* FISLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D80594EF1976F1D000116B35 /* FISLocation.m */; };
 		D80594FA1976F1D000116B35 /* FISTrivia.m in Sources */ = {isa = PBXBuildFile; fileRef = D80594F11976F1D000116B35 /* FISTrivia.m */; };
+		FFCA27F7FE4EC322FED06690 /* libPods-locationTrivia-APITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F44F6EB447FDAE794EDEC8B /* libPods-locationTrivia-APITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F44F6EB447FDAE794EDEC8B /* libPods-locationTrivia-APITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-locationTrivia-APITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA63685DE4E8E9ACEAD2B8E /* Pods-locationTrivia-APITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-locationTrivia-APITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-locationTrivia-APITests/Pods-locationTrivia-APITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B7080BB79891B7BA6DC9A172 /* Pods-locationTrivia-APITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-locationTrivia-APITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-locationTrivia-APITests/Pods-locationTrivia-APITests.release.xcconfig"; sourceTree = "<group>"; };
 		D80594A91976F1B300116B35 /* locationTrivia-API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "locationTrivia-API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80594AC1976F1B300116B35 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D80594AE1976F1B300116B35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,12 +95,22 @@
 				D80594CC1976F1B300116B35 /* XCTest.framework in Frameworks */,
 				D80594CE1976F1B300116B35 /* UIKit.framework in Frameworks */,
 				D80594CD1976F1B300116B35 /* Foundation.framework in Frameworks */,
+				FFCA27F7FE4EC322FED06690 /* libPods-locationTrivia-APITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9ED244881D216B78406162FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9EA63685DE4E8E9ACEAD2B8E /* Pods-locationTrivia-APITests.debug.xcconfig */,
+				B7080BB79891B7BA6DC9A172 /* Pods-locationTrivia-APITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D80594A01976F1B300116B35 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +118,7 @@
 				D80594D11976F1B300116B35 /* locationTrivia-APITests */,
 				D80594AB1976F1B300116B35 /* Frameworks */,
 				D80594AA1976F1B300116B35 /* Products */,
+				9ED244881D216B78406162FC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +138,7 @@
 				D80594AE1976F1B300116B35 /* CoreGraphics.framework */,
 				D80594B01976F1B300116B35 /* UIKit.framework */,
 				D80594CB1976F1B300116B35 /* XCTest.framework */,
+				1F44F6EB447FDAE794EDEC8B /* libPods-locationTrivia-APITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D80594DE1976F1B300116B35 /* Build configuration list for PBXNativeTarget "locationTrivia-APITests" */;
 			buildPhases = (
+				47F19E0ED3941340BF77BF7B /* Check Pods Manifest.lock */,
 				D80594C61976F1B300116B35 /* Sources */,
 				D80594C71976F1B300116B35 /* Frameworks */,
 				D80594C81976F1B300116B35 /* Resources */,
+				8D9585BD4A0DCEC7CFC9D0EA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,6 +292,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47F19E0ED3941340BF77BF7B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8D9585BD4A0DCEC7CFC9D0EA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-locationTrivia-APITests/Pods-locationTrivia-APITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D80594A51976F1B300116B35 /* Sources */ = {
@@ -428,6 +479,7 @@
 		};
 		D80594DF1976F1B300116B35 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EA63685DE4E8E9ACEAD2B8E /* Pods-locationTrivia-APITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/locationTrivia-API.app/locationTrivia-API";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -450,6 +502,7 @@
 		};
 		D80594E01976F1B300116B35 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7080BB79891B7BA6DC9A172 /* Pods-locationTrivia-APITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/locationTrivia-API.app/locationTrivia-API";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -485,6 +538,7 @@
 				D80594DD1976F1B300116B35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D80594DE1976F1B300116B35 /* Build configuration list for PBXNativeTarget "locationTrivia-APITests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +547,7 @@
 				D80594E01976F1B300116B35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
